@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import ArticleIntro from './articleIntro/ArticleIntro.jsx'
+import BarChart from './statistic/barChart/BarChart';
+import './overview.scss';
 
 
 export default class Overview extends Component {
@@ -10,8 +13,9 @@ export default class Overview extends Component {
     
     render() {
         return (
-            <div>
-                <h2>Hello, Test!</h2>
+           <div>
+               <ArticleIntro/>
+               <BarChart/>
             </div>
         );
     }
