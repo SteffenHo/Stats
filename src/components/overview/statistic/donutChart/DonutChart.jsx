@@ -14,6 +14,7 @@ export default class DonutChart extends Component {
         columns: PropTypes.array.isRequired,
         title: PropTypes.string.isRequired,
         duration:PropTypes.number,
+        headline: PropTypes.string.isRequired
     }
 
     static defaultProps = {
@@ -21,7 +22,7 @@ export default class DonutChart extends Component {
     }
     
     render() {
-        const {columns, title, duration} = this.props;
+        const {columns, title, duration, headline} = this.props;
        
         const data = {
             columns,
@@ -35,7 +36,7 @@ export default class DonutChart extends Component {
         }
 
         return (
-            <Accordion head="Bestellarten" className="accordion--open">
+            <Accordion head={headline} className="accordion--open">
                 <div className='accordion__content'>
                 <C3Chart data={data} transition={transition} donut={donut}/>
                 </div>
