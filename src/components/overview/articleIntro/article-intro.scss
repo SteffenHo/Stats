@@ -1,0 +1,23 @@
+
+
+
+
+.description{
+    flex-grow: 2;
+    padding-right: 15px;
+    .name{}
+    .text{}
+}
+
+.intro-wrapper{
+    display: flex;
+}
+.image{
+    flex-grow: 1;
+
+}
+
+img{
+    background-size: cover;
+    width:100%
+}
