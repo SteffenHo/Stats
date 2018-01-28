@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Accordion } from 'chayns-components';
+import PropTypes from 'prop-types';
 import C3Chart from 'react-c3js';
 
 export default class DonutChart extends Component {
@@ -9,23 +10,28 @@ export default class DonutChart extends Component {
        
     }
 
+    static propTypes = {
+        columns: PropTypes.array.isRequired,
+        title: PropTypes.string.isRequired,
+        duration:PropTypes.number,
+    }
+
+    static defaultProps = {
+        duration: 1000,
+    }
     
     render() {
+        const {columns, title, duration} = this.props;
        
         const data = {
-            columns:[
-                ['online', 30],
-                ['bar', 50],
-                ['terminal', 10],
-                ['sonstiges', 10]
-            ],
+            columns,
             type : 'donut'
         }
         const donut = {
-            title: 'Bestellungen'
+            title
         }
         const transition = {
-            duration: 5000
+            duration
         }
 
         return (

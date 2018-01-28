@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './bar-chart.scss';
 import { Accordion } from 'chayns-components';
+import PropTypes from 'prop-types';
 import C3Chart from 'react-c3js';
 
 export default class BarChart extends Component {
@@ -10,38 +11,45 @@ export default class BarChart extends Component {
        
     }
 
+    static propTypes = {
+        columns: PropTypes.array.isRequired,
+        tooltipTitleFormat: PropTypes.func,
+        tooltipValueFormat: PropTypes.func,
+        xAxisFormat: PropTypes.fun,
+        duration:PropTypes.number,
+    }
+
+    static defaultProps = {
+        duration: 1000,
+        tooltipTitleFormat: function (d) { return `Umsatz ${d.getDate()}.${d.getMonth()}.${d.getFullYear()}` },
+        tooltipValueFormat: function (value, ratio, id) { return `${value} €`},
+        xAxisFormat: function (d) { return `${d.getDate()}.${d.getMonth()}` }
+    }
     
     
     render() {
+        const {columns, duration, tooltipTitleFormat, tooltipValueFormat,xAxisFormat} = this.props;
         const data = {
             x: 'x',
-            columns: [
-              ['Aktuelle Woche', 900, 30, 200, 100, 400, 150, 200],
-              ['Vorwoche', 798, 500, 200, 100, 240, 115, 325],
-              ['x','2018-01-21', '2018-01-22','2018-01-23','2018-01-24','2018-01-25','2018-01-26', '2018-01-27' ]
-              
-            ],
+            columns,
             type: 'bar',
           };
         const axis ={
             x : {
                     type : 'timeseries',
                     tick: {
-                        format: '%m-%d',
+                        format: xAxisFormat,
                         fit: true
                     }
                 }
         }
         const transition = {
-            duration: 5000
+            duration
         }
         const tooltip = {
             format: {
-                title: function (d) { return `Umsatz ${d.getDate()}.${d.getMonth()}.${d.getFullYear()}` },
-                value: function (value, ratio, id) {
-                    
-                    return `${value} €`
-                }
+                title: tooltipTitleFormat,
+                value: tooltipValueFormat
             }
         }
         return (

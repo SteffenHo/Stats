@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Accordion } from 'chayns-components';
+import PropTypes from 'prop-types';
 import C3Chart from 'react-c3js';
 
 export default class GaugeChart extends Component {
@@ -8,27 +9,38 @@ export default class GaugeChart extends Component {
         super();
        
     }
-    
+    static propTypes = {
+        columns: PropTypes.array.isRequired,
+        max: PropTypes.number,
+        duration:PropTypes.number,
+        pattern: PropTypes.array,
+        colorValues: PropTypes.array
+    }
+
+    static defaultProps = {
+        max: 100,
+        duration: 1000,
+        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
+        colorValues: [30, 60, 90, 100]
+    }
     
     render() {
-       
+       const {columns, max, duration, pattern, colorValues} = this.props
         const data = {
-            columns:[
-                ['Umasatz', 100]
-            ],
+            columns,
             type : 'gauge'
         }
         const gauge = {
-            max: 100
+            max
         }
         const transition = {
-            duration: 5000
+            duration
         }
         const color ={
-            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+            pattern, // the three color levels for the percentage values.
             threshold: {
-                max:100,
-                values: [30, 60, 90, 100]
+                max,
+                values: colorValues
             }
         }
 
