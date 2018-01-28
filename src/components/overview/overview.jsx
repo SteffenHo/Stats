@@ -34,8 +34,10 @@ export default class Overview extends Component {
            <div>
                <ArticleIntro/>
                <BarChart columns={barColumns}/>
-               <DonutChart columns={donutColumns} title="Bestellungen"/>
-               <GaugeChart columns={gaugeColumns}/>
+               <DonutChart columns={donutColumns} title="Bestellungen" headline="Bestellungen"/>
+               <GaugeChart columns={gaugeColumns} headline="Umsatz">
+                    <div> Hier wird dein Tagesumsatz mit den des Vortags verglichen, bisher hast du <span style={{fontWeight: 'bold'}}>91,4%</span> de Vortagsumsatzes gemacht.</div>
+                </GaugeChart>
             </div>
         );
     }
