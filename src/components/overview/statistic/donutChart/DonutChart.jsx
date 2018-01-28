@@ -14,15 +14,16 @@ export default class DonutChart extends Component {
         columns: PropTypes.array.isRequired,
         title: PropTypes.string.isRequired,
         duration:PropTypes.number,
-        headline: PropTypes.string.isRequired
+        width: PropTypes.number
     }
 
     static defaultProps = {
         duration: 1000,
+        width:undefined
     }
     
     render() {
-        const {columns, title, duration, headline} = this.props;
+        const {columns, title, duration,  width} = this.props;
        
         const data = {
             columns,
@@ -35,12 +36,12 @@ export default class DonutChart extends Component {
             duration
         }
 
+        const size = {
+            width
+        }
+
         return (
-            <Accordion head={headline} className="accordion--open">
-                <div className='accordion__content'>
-                <C3Chart data={data} transition={transition} donut={donut}/>
-                </div>
-            </Accordion>
+                <C3Chart data={data} transition={transition} donut={donut} size={size}/>
         );
     }
 }

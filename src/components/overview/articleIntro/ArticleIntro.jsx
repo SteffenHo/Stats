@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {TextWithIcon} from '../../utils/textWithIcon/TextWithIcon'
 import ArticleInformation from './articleInformation/ArticleInformation'
+import CurrentArticleStats from './currentArticleStats/CurrentArticleStats'
 import './article-intro.scss';
 
 
@@ -22,8 +23,8 @@ export default class ArticleIntro extends Component {
                         <img src='https://tsimg.space/v1/images/c978fada-65db-e711-8381-00155d099e09.jpg'></img>
                     </div>
                 </div>    
-
                 <ArticleInformation/>
+                <CurrentArticleStats/>
             </div>
         );
     }
