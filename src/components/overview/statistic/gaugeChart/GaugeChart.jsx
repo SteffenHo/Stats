@@ -15,7 +15,8 @@ export default class GaugeChart extends Component {
         duration:PropTypes.number,
         pattern: PropTypes.array,
         colorValues: PropTypes.array,
-        headline: PropTypes.string.isRequired
+        headline: PropTypes.string.isRequired,
+        width: PropTypes.number
 
     }
 
@@ -23,11 +24,12 @@ export default class GaugeChart extends Component {
         max: 100,
         duration: 1000,
         pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
-        colorValues: [30, 60, 90, 100]
+        colorValues: [30, 60, 90, 100],
+        width: undefined
     }
     
     render() {
-       const {columns, max, duration, pattern, colorValues,headline} = this.props
+       const {columns, max, duration, pattern, colorValues,headline,width} = this.props
         const data = {
             columns,
             type : 'gauge'
@@ -44,6 +46,10 @@ export default class GaugeChart extends Component {
                 max,
                 values: colorValues
             }
+        }
+
+        const size = {
+            width
         }
 
         return (
