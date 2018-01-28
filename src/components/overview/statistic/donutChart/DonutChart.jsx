@@ -36,11 +36,7 @@ export default class DonutChart extends Component {
         }
 
         return (
-            <Accordion head={headline} className="accordion--open">
-                <div className='accordion__content'>
-                <C3Chart data={data} transition={transition} donut={donut}/>
-                </div>
-            </Accordion>
+                <C3Chart data={data} transition={transition} donut={donut} size={size}/>
         );
     }
 }

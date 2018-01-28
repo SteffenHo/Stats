@@ -47,12 +47,7 @@ export default class GaugeChart extends Component {
         }
 
         return (
-            <Accordion head={headline} className="accordion--open">
-                <div className='accordion__content'>
-                    {this.props.children}
-                    <C3Chart data={data} transition={transition} gauge={gauge} color={color}/>
-                </div>
-            </Accordion>
+                    <C3Chart data={data} transition={transition} gauge={gauge} color={color} size={size}/>
         );
     }
 }
