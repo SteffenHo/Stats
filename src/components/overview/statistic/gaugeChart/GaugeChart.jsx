@@ -14,7 +14,9 @@ export default class GaugeChart extends Component {
         max: PropTypes.number,
         duration:PropTypes.number,
         pattern: PropTypes.array,
-        colorValues: PropTypes.array
+        colorValues: PropTypes.array,
+        headline: PropTypes.string.isRequired
+
     }
 
     static defaultProps = {
@@ -25,7 +27,7 @@ export default class GaugeChart extends Component {
     }
     
     render() {
-       const {columns, max, duration, pattern, colorValues} = this.props
+       const {columns, max, duration, pattern, colorValues,headline} = this.props
         const data = {
             columns,
             type : 'gauge'
@@ -45,9 +47,10 @@ export default class GaugeChart extends Component {
         }
 
         return (
-            <Accordion head="Umsatz" className="accordion--open">
+            <Accordion head={headline} className="accordion--open">
                 <div className='accordion__content'>
-                <C3Chart data={data} transition={transition} gauge={gauge} color={color}/>
+                    {this.props.children}
+                    <C3Chart data={data} transition={transition} gauge={gauge} color={color}/>
                 </div>
             </Accordion>
         );
