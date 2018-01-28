@@ -53,11 +53,7 @@ export default class BarChart extends Component {
             }
         }
         return (
-            <Accordion head="Umastz" className="accordion--open">
-                <div className='accordion__content'>
-                <C3Chart data={data} axis={axis} transition={transition} tooltip={tooltip}/>
-                </div>
-            </Accordion>
+            <C3Chart data={data} axis={axis} transition={transition} tooltip={tooltip}/>
         );
     }
 }
