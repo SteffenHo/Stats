@@ -10,7 +10,7 @@ export default {
         port: 8080,
         historyApiFallback: true,
         compress: true,
-        hot: true,
+        hot: false,
         disableHostCheck: true
     },
     devtool: 'inline-source-map',
