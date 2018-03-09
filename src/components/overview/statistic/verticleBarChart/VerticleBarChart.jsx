@@ -3,6 +3,7 @@ import './verticle-bar-chart.scss';
 import { Accordion } from 'chayns-components';
 import PropTypes from 'prop-types';
 import C3Chart from 'react-c3js';
+import { chaynsColor100, chaynsColor70 } from '../../../utils/const'
 
 export default class VerticleBarChart extends Component {
 
@@ -24,7 +25,6 @@ export default class VerticleBarChart extends Component {
         tooltipNameFormat: (name, ratio, id, index) => {console.log('name, ratio, id, index',name, ratio, id, index); return name},
         tooltipTitleFormat: function (d) { console.log('data', d ); },
         tooltipValueFormat: function (value, ratio, id, index) { console.log('value, ratio, id', value, ratio, id, index); return `${value}`},
-        //xAxisFormat: function (d) { return `${d.getDate()}.${d.getMonth()}` }
         yAxisFormat: (d)=>{console.log(d); return d.toFixed(0)}
     }
     
@@ -35,6 +35,13 @@ export default class VerticleBarChart extends Component {
             x: 'x',
             columns,
             type: 'bar',
+            color: function(inColor, data) {
+                if(data.index !== undefined) {
+                    return data.index === 0 ? chayns.getSchemeColor(100) : chayns.getSchemeColor(70);
+                }
+
+                return chayns.getSchemeColor(100) ;
+            }
           };
         const axis ={
             rotated: true,
