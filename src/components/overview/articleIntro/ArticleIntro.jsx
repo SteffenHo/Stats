@@ -13,7 +13,7 @@ export default class ArticleIntro extends Component {
     
     render() {
         return (
-            <div className='content__card'>
+            <div>
                 <div className='intro-wrapper'>
                     <div className='description'>
                         <h1 className ='name'> Big BBQ Burger</h1>

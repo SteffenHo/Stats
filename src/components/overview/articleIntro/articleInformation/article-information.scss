@@ -5,3 +5,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.lastRefresh{
+    text-align: right;
+    margin-top: 20px
+}
+
+.refresh__icon{
+    font-size: 18px;
+}
+.fa-clock-o{
+    margin-right: 10px
+}
