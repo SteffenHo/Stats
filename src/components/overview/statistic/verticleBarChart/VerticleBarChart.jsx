@@ -4,6 +4,7 @@ import { Accordion } from 'chayns-components';
 import PropTypes from 'prop-types';
 import C3Chart from 'react-c3js';
 import { chaynsColor100, chaynsColor70 } from '../../../utils/const'
+import { statsColor } from '../../../utils/colorHelper'
 
 export default class VerticleBarChart extends Component {
 
@@ -35,13 +36,7 @@ export default class VerticleBarChart extends Component {
             x: 'x',
             columns,
             type: 'bar',
-            color: function(inColor, data) {
-                if(data.index !== undefined) {
-                    return data.index === 0 ? chayns.getSchemeColor(100) : chayns.getSchemeColor(70);
-                }
-
-                return chayns.getSchemeColor(100) ;
-            }
+            color: statsColor
           };
         const axis ={
             rotated: true,
