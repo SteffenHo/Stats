@@ -6,7 +6,7 @@ export const TextRow = (props) => {
     const {text, value, icon, customClassName} = props;
     const classNames = [customClassName];
     return(
-        <div className="textRowWrapper">
+        <div className={`textRowWrapper ${classNames}`}>
             <div>{text}</div>
             <TextWithIcon
                 text={value}

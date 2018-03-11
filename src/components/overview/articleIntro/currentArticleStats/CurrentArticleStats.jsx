@@ -4,6 +4,8 @@ import DonutChart from '../../statistic/donutChart/DonutChart'
 import GaugeChart from '../../statistic/gaugeChart/GaugeChart'
 import ChartAccordion from '../../statistic/chartAccordion/ChartAccordion';
 import VerticleBarChart from '../../statistic/verticleBarChart/VerticleBarChart'
+import { Accordion } from 'chayns-components';
+
 import './current-article-stats.scss'
 
 
@@ -40,7 +42,9 @@ export default class CurrentArticleStats extends Component {
         ];
         return (
             <div>
-                <ChartAccordion headline="Täglicher erfolg">
+                <Accordion head="Täglicher erfolg">
+                <div className='accordion__content'>
+
                     <div className="stats-wrapper">
                         <div className="stats-description">
                             <div> Hier wird dein Tagesumsatz mit den des Vortags verglichen, bisher hast du <span className="bold">91,4%</span> des Vortagsumsatzes gemacht.</div>
@@ -58,7 +62,8 @@ export default class CurrentArticleStats extends Component {
                             <DonutChart columns={donutColumns} title="Bestellungen"  />
                         </div>
                     </div>
-                </ChartAccordion>
+                    </div>
+                </Accordion>
             </div>
         );
     }

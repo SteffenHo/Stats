@@ -16,7 +16,12 @@ export default class ChartAccordion extends Component {
         
 
         return (
-            <Accordion head={headline} className="accordion--open">
+            <Accordion
+            head={headline}
+            isWrapped
+            dataGroup={1}
+            autogrow
+            >
                 <div className='accordion__content'>
                     {this.props.children}
                 </div>

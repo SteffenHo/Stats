@@ -4,6 +4,7 @@ import BarChart from './statistic/barChart/BarChart';
 import DonutChart from './statistic/donutChart/DonutChart'
 import GaugeChart from './statistic/gaugeChart/GaugeChart'
 import ChartAccordion from './statistic/chartAccordion/ChartAccordion';
+import { Accordion } from 'chayns-components';
 import './overview.scss';
 
 
@@ -34,7 +35,8 @@ export default class Overview extends Component {
         return (
             <div>
                 <ArticleIntro haedlin="Umsatz"/>
-                <ChartAccordion>
+                <Accordion  head={'Statistiken'}>
+                <ChartAccordion headline="Absatz">
                     <BarChart columns={barColumns} />
                 </ChartAccordion>
                 <ChartAccordion headline="Bestellabschlüsse">
@@ -44,6 +46,7 @@ export default class Overview extends Component {
                     <div> Hier wird dein Tagesumsatz mit den des Vortags verglichen, bisher hast du <span style={{ fontWeight: 'bold' }}>91,4%</span> de Vortagsumsatzes gemacht.</div>
                     <GaugeChart columns={gaugeColumns} headline="Umsatz"></GaugeChart>
                 </ChartAccordion>
+                </Accordion>
             </div>
         );
     }
